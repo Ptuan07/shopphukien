@@ -48,6 +48,7 @@ class ProductController extends CI_Controller {
     public function store()
     {
         $this->form_validation->set_rules('title', 'Title', 'trim|required',['required'=>'Bạn chưa nhập %s']);
+        $this->form_validation->set_rules('price', 'Price', 'trim|required',['required'=>'Bạn chưa nhập %s']);
         $this->form_validation->set_rules('description', 'Description', 'trim|required',['required'=>'Bạn chưa nhập %s']);
         $this->form_validation->set_rules('quantity', 'Quantity', 'trim|required',['required'=>'Bạn chưa nhập %s']);
        // $this->form_validation->set_rules('status', 'Status', 'required');
@@ -77,8 +78,9 @@ class ProductController extends CI_Controller {
                 $product_filename = $this->upload->data('file_name');
                 $data = [
                     'title' => $this->input->post('title'),
+                    'price' => $this->input->post('price'),
                     'description' => $this->input->post('description'),
-                   // 'slug' => $this->input->post('slug'),
+               //     'slug' => $this->input->post('slug'),
                     'status' => $this->input->post('status'),
                     'category_id' => $this->input->post('category_id'),
                     'brand_id' => $this->input->post('brand_id'),
@@ -121,6 +123,7 @@ class ProductController extends CI_Controller {
     public function update($id)
     {
         $this->form_validation->set_rules('title', 'Title', 'trim|required',['required'=>'Bạn chưa nhập %s']);
+        $this->form_validation->set_rules('price', 'Price', 'trim|required',['required'=>'Bạn chưa nhập %s']);
         $this->form_validation->set_rules('description', 'Description', 'trim|required',['required'=>'Bạn chưa nhập %s']);
         $this->form_validation->set_rules('quantity', 'Quantity', 'trim|required',['required'=>'Bạn chưa nhập %s']);
        // $this->form_validation->set_rules('status', 'Status', 'required');
@@ -150,13 +153,14 @@ class ProductController extends CI_Controller {
             {
                 $product_filename = $this->upload->data('file_name');
                 $data = [
-                    'title' => $this->input->post('title'),
+                    'title' => $this->input->post('title'), 
                     'description' => $this->input->post('description'),
                    // 'slug' => $this->input->post('slug'),
-                    'status' => $this->input->post('status'),
+                    'quantity' => $this->input->post('quantity'),
+                    'price' => $this->input->post('price'),
                     'category_id' => $this->input->post('category_id'),
                     'brand_id' => $this->input->post('brand_id'),
-                    'quantity' => $this->input->post('quantity'),
+                    'status' => $this->input->post('status'),
                     'image' => $product_filename
                 ];
                 
@@ -166,11 +170,13 @@ class ProductController extends CI_Controller {
             $data = [
                 'title' => $this->input->post('title'),
                 'description' => $this->input->post('description'),
-                //'slug' => $this->input->post('slug'),
-                'status' => $this->input->post('status'),
+                'price' => $this->input->post('price'),
+             //   'slug' => $this->input->post('slug'),
+                'quantity' => $this->input->post('quantity'),
                 'category_id' => $this->input->post('category_id'),
                 'brand_id' => $this->input->post('brand_id'),
-                'quantity' => $this->input->post('quantity'),
+                'status' => $this->input->post('status'),
+
                 //'image' => $brand_filename
             ];
             

@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/webbanhang/';
-
+$config['base_url'] = 'http://localhost/shopphukien/';
+$config['pageTitle'] = 'Shop Phụ Kiện Chính Hãng';
 /*
 |--------------------------------------------------------------------------
 | Index File

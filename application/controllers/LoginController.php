@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class LoginController extends CI_Controller {
 
-	public function __contruct()
+	public function __construct()
 	{
-		parent::__contruct();
+		parent::__construct();
 		//$this->load->model('LoginModel');
 	}
 	public function index()
@@ -25,6 +25,9 @@ class LoginController extends CI_Controller {
 				$password = md5($this->input->post('password'));
 				$this->load->model('LoginModel');
 				$result = $this->LoginModel->checkLogin($email,$password);
+				// print_r("<pre>");
+				// print_r($result);
+				// die();
 				if(count($result)>0)
 				{
 					$session_array =array(
@@ -39,7 +42,7 @@ class LoginController extends CI_Controller {
 				else
 				{
 					$this->session->set_flashdata('error','Sai tài khoản hoặc mật khẩu, Vui lòng nhập lại!');
-					redirect(base_url('Login'));
+					redirect(base_url('login'));
 				}
 		}
 		else
@@ -47,4 +50,6 @@ class LoginController extends CI_Controller {
 			$this->index();
 		}
 	}
+
+
 }

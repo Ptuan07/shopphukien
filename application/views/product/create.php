@@ -25,6 +25,12 @@
             </div>
 
             <div class="form-group">
+                <label for="exampleInputEmail1">Price</label>
+                <input type="text" name="price" class="form-control" id="exampleInputEmail1" >
+                <?php echo '<span class="text text-danger">'.form_error('price').'</span>' ?>
+            </div>
+
+            <div class="form-group">
                 <label for="exampleInputPassword1">Description</label>
                 <input type="text" class="form-control" name="description" id="exampleInputPassword1">
                 <?php echo '<span class="text text-danger">'.form_error('description').'</span>' ?>

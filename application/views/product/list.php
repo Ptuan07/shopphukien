@@ -22,10 +22,11 @@
                 <tr>
                 <th scope="col">STT</th>
                 <th scope="col">Title</th>
-                <th scope="col">Brand</th>
-                <th scope="col">Category</th>
-                <th scope="col">Description</th>
+                <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
+                <th scope="col">Category</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Description</th>
                 <th scope="col">Image</th>
                 <th scope="col">Status</th>
                 <th scope="col">Manager</th>
@@ -38,10 +39,11 @@
                 <tr>
                 <th scope="row"><?php echo $key ?></th>
                 <td><?php echo $pro->title ?></td>
-                <td><?php echo $pro->tenthuonghieu ?></td>
-                <td><?php echo $pro->tendanhmuc ?></td>
-                <td><?php echo $pro->description ?></td>
+                <td><?php echo number_format((float)$pro->price,0,',','.') ?>VND</td>
                 <td><?php echo $pro->quantity ?></td>
+                <td><?php echo $pro->tendanhmuc ?></td>
+                <td><?php echo $pro->tenthuonghieu ?></td>
+                <td><?php echo $pro->description ?></td>
                 
                 <td>
                     <img src=" <?php echo base_url('uploads/product/'.$pro->image)  ?>" width="150" height="150" alt="">

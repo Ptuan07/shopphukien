@@ -49,13 +49,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'IndexController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+//home
+$route['danh-muc/(:any)']['GET']='IndexController/category/$1';
+$route['thuong-hieu/(:any)']['GET']='IndexController/brand/$1';
+$route['san-pham/(:any)']['GET']='IndexController/product/$1';
+$route['gio-hang']['GET']='IndexController/cart';
+$route['add-to-cart']['POST']='IndexController/add_to_cart';
+$route['delete-item/(:any)']['GET']='IndexController/delete_item/$1';
+$route['dang-nhap']['GET']='IndexController/login';
+$route['delete-all-cart']['GET']='IndexController/delete_all_cart';
+$route['update-cart-item']['POST']='IndexController/update_cart_item';
+$route['checkout']['GET']='IndexController/checkout';
+$route['confirm-checkout']['POST']='IndexController/confirm_checkout';
+$route['dang-xuat']['GET']='IndexController/dang_xuat';
+$route['tim-kiem']['GET']='IndexController/tim_kiem';
+$route['thanks']['GET']='IndexController/thanks';
+
+
 
 //login
 $route['login']['GET']='LoginController/index';
 $route['login-user']['POST']='LoginController/login';
+$route['login-customer']['POST']='IndexController/login_customer';
+$route['dang-ky']['POST']='IndexController/dang_ky';
+
 
 //dashboard
 $route['dashboard']['GET']='DashboardController/index';
@@ -84,3 +105,10 @@ $route['product/delete/(:any)']['GET']='ProductController/delete/$1';
 $route['product/edit/(:any)']['GET']='ProductController/edit/$1';
 $route['product/update/(:any)']['POST']='ProductController/update/$1';
 $route['product/store']['POST']='ProductController/store';
+
+//order
+$route['order/list']['GET']='OrderController/index';
+$route['order/process']['POST']='OrderController/process';
+$route['order/view/(:any)']['GET']='OrderController/view/$1';
+$route['order/delete/(:any)']['GET']='OrderController/delete_order/$1';
+
